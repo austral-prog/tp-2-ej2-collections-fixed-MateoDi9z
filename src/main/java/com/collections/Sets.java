@@ -11,7 +11,10 @@ public class Sets {
             "triple sec", "coffee liqueur", "almond liqueur", "champagne", "orange curacao", "rum"));
 
     public static String checkDrinks(String drink, List<String> drinks) {
-        if (ALCOHOLS.retainAll(drinks)) return String.format("%s Mocktail", drink);
-        return String.format("%s Cocktail", drink);
+        Set<String> intersection = new HashSet<>(ALCOHOLS); // Alcohols copy
+        intersection.retainAll(drinks); // Alcohols & ingredients intersection
+
+        if (!intersection.isEmpty()) return String.format("%s Cocktail", drink);
+        return String.format("%s Mocktail", drink);
     }
 }
