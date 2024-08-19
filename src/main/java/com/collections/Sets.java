@@ -10,4 +10,8 @@ public class Sets {
             "tequila", "gin", "dry vermouth", "sweet vermouth", "prosecco","aperol", "brandy", "mezcal",
             "triple sec", "coffee liqueur", "almond liqueur", "champagne", "orange curacao", "rum"));
 
+    public static String checkDrinks(String drink, List<String> drinks) {
+        if (ALCOHOLS.retainAll(drinks)) return String.format("%s Mocktail", drink);
+        return String.format("%s Cocktail", drink);
+    }
 }
